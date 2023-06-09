@@ -155,14 +155,16 @@ function removeItemFromStorage(item) {
 // }
 
 function clearItems() {
-  // itemList.innerHTML = '';
-  while (itemList.firstChild) {
-    itemList.removeChild(itemList.firstChild);
-  }
+  if (confirm('You want to clear all?')) {
+    // itemList.innerHTML = '';
+    while (itemList.firstChild) {
+      itemList.removeChild(itemList.firstChild);
+    }
 
-  // Clear from Localstorage
-  localStorage.removeItem('items');
-  checkUI();
+    // Clear from Localstorage
+    localStorage.removeItem('items');
+    checkUI();
+  }
 }
 
 function filterItems(e) {
